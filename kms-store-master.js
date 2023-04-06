@@ -1,1 +1,5 @@
-console.log("kms store master");
+function setStoreMaster(element){
+    console.log("hello")
+}
+
+setStoreMaster(element)
