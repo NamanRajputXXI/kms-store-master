@@ -8,19 +8,28 @@ function setStoreMaster(el) {
 
   function mHead1(mE) {
     var mHead = document.createElement("div");
-    mHead.style.backgroundColor = "rgba(167,210,240, 1)";
-    mHead.style.width = "100vw";
+    mHead.style.backgroundColor = "rgba(0,32,96, 1)";
+    mHead.style.width = "98%";
     mHead.style.height = "5.5vh";
     mHead.style.display = "flex";
     mHead.style.alignItems = "center";
     mHead.style.justifyContent = "space-between";
     mHead.style.position = "fixed";
-    // mHead.style.padding = "0 px 0 30px";
     mHead.style.top = "0px";
-    mE.appendChild(mHead);
+    mHead.style.margin="10px 10px"
     const text1 = "Store Master ";
-    const text2 = "Icon";
-    mHead.innerHTML = `<p> ${text1} </p><p> ${text2}  </p>`;
+    const text2 = "X";
+    var name = document.createElement("div");
+    name.innerHTML = text1
+    name.style.padding = "10px"
+    name.style.color="white"
+    var icon = document.createElement("div");
+    icon.innerHTML = text2
+    icon.style.marginRight="10px"
+    icon.style.color="white"
+    mHead.appendChild(name)
+    mHead.appendChild(icon)
+    mE.appendChild(mHead);
   }
   mHead1(mTbl_div);
 }
