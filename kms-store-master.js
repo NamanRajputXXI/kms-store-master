@@ -26,7 +26,7 @@ function setStoreMaster(el) {
     name.style.padding = "10px"
     name.style.color="white"
     var icon = document.createElement("div");
-    icon.innerHTML = text2
+    icon.innerHTML = 'X'
     icon.style.marginRight="10px"
     icon.style.color="white"
     mHead.appendChild(name)
