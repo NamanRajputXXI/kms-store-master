@@ -2,6 +2,14 @@ var Item_List
 var Units_List
 
 function setStoreMaster(el) {
+  const style = document.createElement("style");
+  style.innerHTML=`
+  *{
+    font-family: 'Poppins', sans-serif;
+  }
+  `
+  document.head.appendChild(style);
+
   var mStore_div = document.createElement("div");
   mStore_div.style.width = "100%";
   mStore_div.style.height = "100%";
@@ -74,7 +82,7 @@ function setStoreMaster(el) {
       element.appendChild(label)
     }
 
-    function createInput(placeholder, dataArray=[], element){
+    function createInput(placeholder, dataArray=[], element, label){
       var formdiv = document.createElement("div")
       var input = document.createElement("input")
       input.placeholder = placeholder
@@ -90,8 +98,13 @@ function setStoreMaster(el) {
       addButton.addEventListener("click",function(){
         adder(input.value,dataArray)
         console.log(element.id);
-        Item_List.innerHTML = ""
-        createCheckBoxList(dataArray,Item_List)
+        if(label==="Item Category"){
+          Item_List.innerHTML = "";
+          createCheckBoxList(dataArray,Item_List)
+        }else if(label === "Define Units"){
+          Units_List.innerHTML = ""
+          createCheckBoxList(dataArray,Units_List)
+        }
         input.value=""
       })
 
@@ -109,7 +122,7 @@ function setStoreMaster(el) {
       formBody.style.margin = "10px 0"
       formBody.style.width = "35vw"
       createLabel(label,formBody)
-      createInput(placeholder, dataArray, formBody, element)
+      createInput(placeholder, dataArray, formBody, label)
       element.appendChild(formBody)
     }
 
@@ -167,7 +180,7 @@ function setStoreMaster(el) {
     // cost center section
     function mCostCenter(storeBody){
       var costCenter = document.createElement('div')
-      costCenter.style.height = "20vh"
+      costCenter.style.height = "30vh"
       title("Cost Center Section", costCenter)
       storeBody.appendChild(costCenter)
     }
