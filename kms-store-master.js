@@ -295,7 +295,7 @@ function setStoreMaster(el) {
       inverntoryHead.style.fontSize = "1rem";
       var inverntoryParamCheckboxDiv = document.createElement("div");
       inverntoryParamCheckboxDiv.style.display = "flex";
-      inverntoryParamCheckboxDiv.style.gap = " 3vw";
+      inverntoryParamCheckboxDiv.style.gap = " 1vw";
       inverntoryParamCheckboxDiv.style.alignItem = "center";
 
       el.appendChild(inverntoryParaBox);
@@ -330,11 +330,14 @@ function setStoreMaster(el) {
         // Create a label element for the checkbox
         const label = document.createElement("label");
         label.innerHTML = item.data;
+        label.style.fontSize = "1rem";
+        label.style.fontWeight = "bold";
 
         // Create a checkbox input element
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.value = item.id;
+        checkbox.checked = true;
 
         // Add the label and checkbox to the parent element
         inverntoryParamCheckboxDiv.appendChild(label);
@@ -355,10 +358,17 @@ function setStoreMaster(el) {
       inverntoryLedgerHead.style.fontSize = "1rem";
 
       var inverntoryLedgerCheckboxDiv = document.createElement("div");
-      inverntoryLedgerCheckboxDiv.style.display = "flex";
-      inverntoryLedgerCheckboxDiv.style.gap = " 3vw";
+      inverntoryLedgerCheckboxDiv.style.display = "grid";
+      inverntoryLedgerCheckboxDiv.style.gap = " 1vw";
+      inverntoryLedgerCheckboxDiv.style.gridTemplateColumns = "repeat(5, 1fr)";
+      // inverntoryLedgerCheckboxDiv.style.gridAutoRows = "70vw";
+
       inverntoryLedgerCheckboxDiv.style.alignItem = "center";
+      var singleCheckbox = document.createElement("div");
+      singleCheckbox.style.display = "flex";
+      singleCheckbox.style.gap = "10px";
       el.appendChild(inverntoryLedgerBox);
+      inverntoryLedgerCheckboxDiv.appendChild(singleCheckbox);
       inverntoryLedgerBox.appendChild(inverntoryLedgerHead);
       inverntoryLedgerBox.appendChild(inverntoryLedgerCheckboxDiv);
       let inverntoryLedgerData = [
@@ -391,16 +401,19 @@ function setStoreMaster(el) {
       inverntoryLedgerData.forEach((item) => {
         // Create a label element for the checkbox
         const label = document.createElement("label");
+        label.style.fontSize = "1rem";
+        label.style.fontWeight = "bold";
         label.innerHTML = item.data;
 
         // Create a checkbox input element
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.value = item.id;
+        checkbox.checked = true;
 
         // Add the label and checkbox to the parent element
-        inverntoryLedgerCheckboxDiv.appendChild(label);
-        inverntoryLedgerCheckboxDiv.appendChild(checkbox);
+        singleCheckbox.appendChild(label);
+        singleCheckbox.appendChild(checkbox);
       });
     }
     mInventoryLedgerParameter(storeBody);
@@ -408,58 +421,10 @@ function setStoreMaster(el) {
       var uploadDownloadSection = document.createElement("div");
       uploadDownloadSection.style.display = "flex";
       uploadDownloadSection.style.flexDirection = "column";
-      // uploadDownloadSection.style.gap = "1vw";
-      var heading = document.createElement("h5");
-      heading.textContent = "Upload & Download";
-      heading.style.fontWeight = "bold";
-      heading.style.fontSize = "1.2rem";
-      heading.style.color = "rgba(0,32,96, 1)";
-      uploadDownloadSection.appendChild(heading);
-      //  Upload section
-      var uploadDiv = document.createElement("div");
-      uploadDiv.style.display = "flex";
-      uploadDiv.style.gap = "4vw";
-      uploadDiv.style.alignItems = "center";
-      var upload = document.createElement("h5");
-      upload.textContent = "Upload";
-      upload.style.fontWeight = "bold";
-      upload.style.fontSize = "1rem";
-      uploadDownloadSection.appendChild(uploadDiv);
-      var uploadInputAndButtonDiv = document.createElement("div");
-      uploadInputAndButtonDiv.style.display = " flex";
-      uploadInputAndButtonDiv.style.gap = "10px";
-      uploadInputAndButtonDiv.style.alignItems = "center";
-      uploadDiv.appendChild(upload);
-      uploadDiv.appendChild(uploadInputAndButtonDiv);
-      const uploadInput = document.createElement("input");
-      uploadInput.placeholder = "Choose upload Category";
-      const uploadButton = document.createElement("button");
-      uploadButton.textContent = "Upload";
-      uploadInputAndButtonDiv.appendChild(uploadInput);
-      uploadInputAndButtonDiv.appendChild(uploadButton);
-
-      // Download section
-      var downloadDiv = document.createElement("div");
-      downloadDiv.style.display = "flex";
-      downloadDiv.style.gap = "3vw";
-      downloadDiv.style.alignItems = "center";
-      uploadDownloadSection.appendChild(downloadDiv);
-      var download = document.createElement("h5");
-      download.textContent = "Download";
-      download.style.fontWeight = "bold";
-      download.style.fontSize = "1rem";
-      var downloadInputAndButtonDiv = document.createElement("div");
-      downloadInputAndButtonDiv.style.display = " flex";
-      downloadInputAndButtonDiv.style.gap = "10px";
-      downloadInputAndButtonDiv.style.alignItems = "center";
-      downloadDiv.appendChild(download);
-      downloadDiv.appendChild(downloadInputAndButtonDiv);
-      const downloadInput = document.createElement("input");
-      downloadInput.placeholder = "Choose Dataset";
-      const downloadButton = document.createElement("button");
-      downloadButton.textContent = "Download";
-      downloadInputAndButtonDiv.appendChild(downloadInput);
-      downloadInputAndButtonDiv.appendChild(downloadButton);
+      title("Uploads & Download", uploadDownloadSection);
+      uploadDownloadSection.style.height = " 25vh";
+      uploadDownloadSection.style.display = " flex";
+      uploadDownloadSection.style.flexDirection = "column";
       el.appendChild(uploadDownloadSection);
     }
     mUploadDownload(storeBody);
@@ -467,7 +432,7 @@ function setStoreMaster(el) {
     function addManagerVender(el) {
       var venderSection = document.createElement("div");
       title("Add / Manage Vendors", venderSection);
-      venderSection.style.height = " 10vh";
+      venderSection.style.height = " 25vh";
       venderSection.style.display = " flex";
       venderSection.style.flexDirection = "column";
       el.appendChild(venderSection);
@@ -477,9 +442,9 @@ function setStoreMaster(el) {
     function manageReport(el) {
       var manageReportSection = document.createElement("div");
       title("Manage report", manageReportSection);
-      venderSection.style.height = " 10vh";
-      venderSection.style.display = " flex";
-      venderSection.style.flexDirection = "column";
+      manageReportSection.style.height = " 25vh";
+      manageReportSection.style.display = " flex";
+      manageReportSection.style.flexDirection = "column";
       el.appendChild(manageReportSection);
     }
     manageReport(storeBody);
@@ -487,9 +452,9 @@ function setStoreMaster(el) {
     function manageAccess(el) {
       var manageAccessSection = document.createElement("div");
       title("Manage Access", manageAccessSection);
-      venderSection.style.height = " 10vh";
-      venderSection.style.display = " flex";
-      venderSection.style.flexDirection = "column";
+      manageAccessSection.style.height = "25vh";
+      manageAccessSection.style.display = " flex";
+      manageAccessSection.style.flexDirection = "column";
       el.appendChild(manageAccessSection);
     }
     manageAccess(storeBody);
@@ -497,3 +462,57 @@ function setStoreMaster(el) {
 
   body(mStore_div);
 }
+
+// function mUploadDownload(el) {
+//   var uploadDownloadSection = document.createElement("div");
+//   uploadDownloadSection.style.display = "flex";
+//   uploadDownloadSection.style.flexDirection = "column";
+//   title("Uploads & Download", uploadDownloadSection);
+//   uploadDownloadSection.style.height = " 25vh";
+//   uploadDownloadSection.style.display = " flex";
+//   uploadDownloadSection.style.flexDirection = "column";
+//   var uploadDiv = document.createElement("div");
+//   uploadDiv.style.display = "flex";
+//   uploadDiv.style.gap = "4vw";
+//   uploadDiv.style.alignItems = "center";
+//   var upload = document.createElement("h5");
+//   upload.textContent = "Upload";
+//   upload.style.fontWeight = "bold";
+//   upload.style.fontSize = "1rem";
+//   uploadDownloadSection.appendChild(uploadDiv);
+//   var uploadInputAndButtonDiv = document.createElement("div");
+//   uploadInputAndButtonDiv.style.display = " flex";
+//   uploadInputAndButtonDiv.style.gap = "10px";
+//   uploadInputAndButtonDiv.style.alignItems = "center";
+//   uploadDiv.appendChild(upload);
+//   uploadDiv.appendChild(uploadInputAndButtonDiv);
+//   const uploadInput = document.createElement("input");
+//   uploadInput.placeholder = "Choose upload Category";
+//   const uploadButton = document.createElement("button");
+//   uploadButton.textContent = "Upload";
+//   uploadInputAndButtonDiv.appendChild(uploadInput);
+//   uploadInputAndButtonDiv.appendChild(uploadButton);
+
+//   var downloadDiv = document.createElement("div");
+//   downloadDiv.style.display = "flex";
+//   downloadDiv.style.gap = "3vw";
+//   downloadDiv.style.alignItems = "center";
+//   uploadDownloadSection.appendChild(downloadDiv);
+//   var download = document.createElement("h5");
+//   download.textContent = "Download";
+//   download.style.fontWeight = "bold";
+//   download.style.fontSize = "1rem";
+//   var downloadInputAndButtonDiv = document.createElement("div");
+//   downloadInputAndButtonDiv.style.display = " flex";
+//   downloadInputAndButtonDiv.style.gap = "10px";
+//   downloadInputAndButtonDiv.style.alignItems = "center";
+//   downloadDiv.appendChild(download);
+//   downloadDiv.appendChild(downloadInputAndButtonDiv);
+//   const downloadInput = document.createElement("input");
+//   downloadInput.placeholder = "Choose Dataset";
+//   const downloadButton = document.createElement("button");
+//   downloadButton.textContent = "Download";
+//   downloadInputAndButtonDiv.appendChild(downloadInput);
+//   downloadInputAndButtonDiv.appendChild(downloadButton);
+//   el.appendChild(uploadDownloadSection);
+// }
