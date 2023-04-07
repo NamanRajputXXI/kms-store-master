@@ -374,6 +374,10 @@ function setStoreMaster(el) {
       singleCheckbox.style.flexGrow = "2";
 
       singleCheckbox.style.gap = "10px";
+      el.appendChild(inverntoryLedgerBox);
+      inverntoryLedgerCheckboxDiv.appendChild(singleCheckbox);
+      inverntoryLedgerBox.appendChild(inverntoryLedgerHead);
+      inverntoryLedgerBox.appendChild(inverntoryLedgerCheckboxDiv);
       let inverntoryLedgerData = [
         {
           id: 0,
@@ -419,11 +423,6 @@ function setStoreMaster(el) {
         singleCheckbox.appendChild(checkbox);
         singleCheckbox.appendChild(label);
       });
-      el.appendChild(inverntoryLedgerBox);
-
-      inverntoryLedgerCheckboxDiv.appendChild(singleCheckbox);
-      inverntoryLedgerBox.appendChild(inverntoryLedgerHead);
-      inverntoryLedgerBox.appendChild(inverntoryLedgerCheckboxDiv);
     }
     mInventoryLedgerParameter(storeBody);
     function mUploadDownload(el) {
