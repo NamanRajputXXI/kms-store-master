@@ -342,9 +342,6 @@ function setStoreMaster(el) {
         label.style.fontSize = "1rem";
         label.style.fontWeight = "bold";
         // Add the label and checkbox to the parent element
-
-        inverntoryParamCheckboxDiv.appendChild(checkbox);
-        inverntoryParamCheckboxDiv.appendChild(label);
       });
     }
     mInventoryParam(storeBody);
@@ -419,7 +416,6 @@ function setStoreMaster(el) {
         label.innerHTML = item.data;
 
         // Add the label and checkbox to the parent element
-
         singleCheckbox.appendChild(checkbox);
         singleCheckbox.appendChild(label);
       });
