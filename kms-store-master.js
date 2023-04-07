@@ -284,11 +284,15 @@ function setStoreMaster(el) {
     // inverntory parameter section
     function mInventoryParam(el) {
       var inverntoryParaBox = document.createElement("div");
+      inverntoryParaBox.style.borderBottom = "1px solid gray";
+      inverntoryParaBox.style.paddingBottom = "20px";
       inverntoryParaBox.style.display = " flex";
       inverntoryParaBox.style.flexDirection = " column";
-      inverntoryParaBox.style.gap = " 3vh";
+      inverntoryParaBox.style.gap = " 2vh";
       var inverntoryHead = document.createElement("h5");
       inverntoryHead.textContent = "Inventory Parameters";
+      inverntoryHead.style.fontWeight = "bold";
+      inverntoryHead.style.fontSize = "1rem";
       var inverntoryParamCheckboxDiv = document.createElement("div");
       inverntoryParamCheckboxDiv.style.display = "flex";
       inverntoryParamCheckboxDiv.style.gap = " 3vw";
@@ -340,12 +344,16 @@ function setStoreMaster(el) {
     mInventoryParam(storeBody);
     function mInventoryLedgerParameter(el) {
       var inverntoryLedgerBox = document.createElement("div");
-      inverntoryLedgerBox.style.width = "600px";
       inverntoryLedgerBox.style.display = " flex";
+      inverntoryLedgerBox.style.borderBottom = "1px solid gray";
+      inverntoryLedgerBox.style.paddingBottom = "20px";
       inverntoryLedgerBox.style.flexDirection = " column";
-      inverntoryLedgerBox.style.gap = " 3vh";
+      inverntoryLedgerBox.style.gap = " 2vh";
       var inverntoryLedgerHead = document.createElement("h5");
       inverntoryLedgerHead.textContent = "Inventory Ledger Parameter";
+      inverntoryLedgerHead.style.fontWeight = "bold";
+      inverntoryLedgerHead.style.fontSize = "1rem";
+
       var inverntoryLedgerCheckboxDiv = document.createElement("div");
       inverntoryLedgerCheckboxDiv.style.display = "flex";
       inverntoryLedgerCheckboxDiv.style.gap = " 3vw";
@@ -400,17 +408,22 @@ function setStoreMaster(el) {
       var uploadDownloadSection = document.createElement("div");
       uploadDownloadSection.style.display = "flex";
       uploadDownloadSection.style.flexDirection = "column";
-      uploadDownloadSection.style.gap = "3vw";
+      // uploadDownloadSection.style.gap = "1vw";
       var heading = document.createElement("h5");
       heading.textContent = "Upload & Download";
+      heading.style.fontWeight = "bold";
+      heading.style.fontSize = "1.2rem";
+      heading.style.color = "rgba(0,32,96, 1)";
       uploadDownloadSection.appendChild(heading);
       //  Upload section
       var uploadDiv = document.createElement("div");
       uploadDiv.style.display = "flex";
-      uploadDiv.style.gap = "3vw";
+      uploadDiv.style.gap = "4vw";
       uploadDiv.style.alignItems = "center";
       var upload = document.createElement("h5");
       upload.textContent = "Upload";
+      upload.style.fontWeight = "bold";
+      upload.style.fontSize = "1rem";
       uploadDownloadSection.appendChild(uploadDiv);
       var uploadInputAndButtonDiv = document.createElement("div");
       uploadInputAndButtonDiv.style.display = " flex";
@@ -433,6 +446,8 @@ function setStoreMaster(el) {
       uploadDownloadSection.appendChild(downloadDiv);
       var download = document.createElement("h5");
       download.textContent = "Download";
+      download.style.fontWeight = "bold";
+      download.style.fontSize = "1rem";
       var downloadInputAndButtonDiv = document.createElement("div");
       downloadInputAndButtonDiv.style.display = " flex";
       downloadInputAndButtonDiv.style.gap = "10px";
@@ -445,13 +460,40 @@ function setStoreMaster(el) {
       downloadButton.textContent = "Download";
       downloadInputAndButtonDiv.appendChild(downloadInput);
       downloadInputAndButtonDiv.appendChild(downloadButton);
-
       el.appendChild(uploadDownloadSection);
     }
     mUploadDownload(storeBody);
+
+    function addManagerVender(el) {
+      var venderSection = document.createElement("div");
+      title("Add / Manage Vendors", venderSection);
+      venderSection.style.height = " 10vh";
+      venderSection.style.display = " flex";
+      venderSection.style.flexDirection = "column";
+      el.appendChild(venderSection);
+    }
+    addManagerVender(storeBody);
+
+    function manageReport(el) {
+      var manageReportSection = document.createElement("div");
+      title("Manage report", manageReportSection);
+      venderSection.style.height = " 10vh";
+      venderSection.style.display = " flex";
+      venderSection.style.flexDirection = "column";
+      el.appendChild(manageReportSection);
+    }
+    manageReport(storeBody);
+
+    function manageAccess(el) {
+      var manageAccessSection = document.createElement("div");
+      title("Manage Access", manageAccessSection);
+      venderSection.style.height = " 10vh";
+      venderSection.style.display = " flex";
+      venderSection.style.flexDirection = "column";
+      el.appendChild(manageAccessSection);
+    }
+    manageAccess(storeBody);
   }
 
   body(mStore_div);
 }
-
-// setStoreMaster(element);
