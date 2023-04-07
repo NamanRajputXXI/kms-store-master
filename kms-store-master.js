@@ -340,8 +340,8 @@ function setStoreMaster(el) {
         checkbox.checked = true;
 
         // Add the label and checkbox to the parent element
-        inverntoryParamCheckboxDiv.appendChild(label);
         inverntoryParamCheckboxDiv.appendChild(checkbox);
+        inverntoryParamCheckboxDiv.appendChild(label);
       });
     }
     mInventoryParam(storeBody);
@@ -412,8 +412,8 @@ function setStoreMaster(el) {
         checkbox.checked = true;
 
         // Add the label and checkbox to the parent element
-        singleCheckbox.appendChild(label);
         singleCheckbox.appendChild(checkbox);
+        singleCheckbox.appendChild(label);
       });
     }
     mInventoryLedgerParameter(storeBody);
