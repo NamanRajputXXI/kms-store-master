@@ -89,7 +89,7 @@ function setStoreMaster(el) {
       addButton.href = "#";
       input.style.border = "none";
       input.style.borderBottom = "2px solid black";
-      input.style.width = "16vw";
+      input.style.width = "150px";
 
       addButton.innerHTML = "Add";
       addButton.style.fontSize = "0.8rem";
@@ -119,7 +119,7 @@ function setStoreMaster(el) {
       formBody.style.justifyContent = "space-between";
       formBody.style.alignItems = "center";
       formBody.style.margin = "10px 0";
-      formBody.style.width = "35vw";
+      formBody.style.width = "400px";
       createLabel(label, formBody);
       createInput(placeholder, dataArray, formBody, label);
       element.appendChild(formBody);
@@ -287,14 +287,18 @@ function setStoreMaster(el) {
       inverntoryParaBox.style.borderBottom = "1px solid gray";
       inverntoryParaBox.style.paddingBottom = "20px";
       inverntoryParaBox.style.display = " flex";
+      inverntoryParaBox.style.flexWrap = " wrap";
       inverntoryParaBox.style.flexDirection = " column";
-      inverntoryParaBox.style.gap = " 2vh";
+      inverntoryParaBox.style.gap = " 1vh";
       var inverntoryHead = document.createElement("h5");
       inverntoryHead.textContent = "Inventory Parameters";
       inverntoryHead.style.fontWeight = "bold";
       inverntoryHead.style.fontSize = "1rem";
       var inverntoryParamCheckboxDiv = document.createElement("div");
-      inverntoryParamCheckboxDiv.style.display = "flex";
+      // inverntoryParamCheckboxDiv.style.display = "flex";
+      inverntoryParamCheckboxDiv.style.flexBasis = "20%";
+      inverntoryParamCheckboxDiv.style.flexGrow = "2";
+
       inverntoryParamCheckboxDiv.style.gap = " 1vw";
       inverntoryParamCheckboxDiv.style.alignItem = "center";
 
@@ -327,18 +331,16 @@ function setStoreMaster(el) {
         { id: 9, data: "Status" },
       ];
       inverntoryParameterData.forEach((item) => {
-        // Create a label element for the checkbox
-        const label = document.createElement("label");
-        label.innerHTML = item.data;
-        label.style.fontSize = "1rem";
-        label.style.fontWeight = "bold";
-
         // Create a checkbox input element
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.value = item.id;
         checkbox.checked = true;
-
+        // Create a label element for the checkbox
+        const label = document.createElement("label");
+        label.innerHTML = item.data;
+        label.style.fontSize = "1rem";
+        label.style.fontWeight = "bold";
         // Add the label and checkbox to the parent element
         inverntoryParamCheckboxDiv.appendChild(checkbox);
         inverntoryParamCheckboxDiv.appendChild(label);
@@ -351,21 +353,25 @@ function setStoreMaster(el) {
       inverntoryLedgerBox.style.borderBottom = "1px solid gray";
       inverntoryLedgerBox.style.paddingBottom = "20px";
       inverntoryLedgerBox.style.flexDirection = " column";
-      inverntoryLedgerBox.style.gap = " 2vh";
+      inverntoryLedgerBox.style.justifyContent = " center";
+      // inverntoryLedgerBox.style.gap = " 2vh";
       var inverntoryLedgerHead = document.createElement("h5");
       inverntoryLedgerHead.textContent = "Inventory Ledger Parameter";
       inverntoryLedgerHead.style.fontWeight = "bold";
       inverntoryLedgerHead.style.fontSize = "1rem";
 
       var inverntoryLedgerCheckboxDiv = document.createElement("div");
-      inverntoryLedgerCheckboxDiv.style.display = "grid";
-      inverntoryLedgerCheckboxDiv.style.gap = " 1vw";
-      inverntoryLedgerCheckboxDiv.style.gridTemplateColumns = "repeat(5, 1fr)";
-      // inverntoryLedgerCheckboxDiv.style.gridAutoRows = "70vw";
+      inverntoryLedgerCheckboxDiv.style.display = "flex";
+      inverntoryLedgerCheckboxDiv.style.flexWrap = "wrap";
+      inverntoryLedgerCheckboxDiv.style.alignItems = "center";
+
+      inverntoryLedgerCheckboxDiv.style.gap = " 3vw";
 
       inverntoryLedgerCheckboxDiv.style.alignItem = "center";
       var singleCheckbox = document.createElement("div");
-      singleCheckbox.style.display = "flex";
+      singleCheckbox.style.flexBasis = "20%";
+      singleCheckbox.style.flexGrow = "2";
+
       singleCheckbox.style.gap = "10px";
       el.appendChild(inverntoryLedgerBox);
       inverntoryLedgerCheckboxDiv.appendChild(singleCheckbox);
@@ -399,17 +405,17 @@ function setStoreMaster(el) {
         { id: 12, data: "Instrument Number" },
       ];
       inverntoryLedgerData.forEach((item) => {
+        // Create a checkbox input element
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.value = item.id;
+        checkbox.checked = true;
         // Create a label element for the checkbox
         const label = document.createElement("label");
         label.style.fontSize = "1rem";
         label.style.fontWeight = "bold";
         label.innerHTML = item.data;
-
-        // Create a checkbox input element
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.value = item.id;
-        checkbox.checked = true;
 
         // Add the label and checkbox to the parent element
         singleCheckbox.appendChild(checkbox);
