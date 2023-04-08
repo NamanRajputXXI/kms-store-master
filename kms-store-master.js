@@ -150,7 +150,7 @@ function setStoreMaster(el) {
       var label = document.createElement("label");
       label.htmlFor = id;
       label.innerHTML = eleName;
-      label.style.fontWeight = "bold"
+      label.style.fontWeight = "bold";
 
       checkboxInput.appendChild(checkbox);
       checkboxInput.appendChild(label);
@@ -249,9 +249,9 @@ function setStoreMaster(el) {
       var itemList = document.createElement("div");
       itemList.style.display = "flex";
       itemList.style.flexDirection = "row";
-      itemList.style.rowGap = "3vw"
-      itemList.style.columnGap = "6vw"
-      itemList.style.flexWrap = "wrap"
+      itemList.style.rowGap = "3vw";
+      itemList.style.columnGap = "6vw";
+      itemList.style.flexWrap = "wrap";
       Item_List = itemList;
       createCheckBoxList(categoryArray, Item_List);
       item_category.appendChild(itemList);
@@ -274,9 +274,9 @@ function setStoreMaster(el) {
       var unitsList = document.createElement("div");
       unitsList.style.display = "flex";
       unitsList.style.flexDirection = "row";
-      unitsList.style.rowGap = "3vw"
-      unitsList.style.columnGap = "6vw"
-      unitsList.style.flexWrap = "wrap"
+      unitsList.style.rowGap = "3vw";
+      unitsList.style.columnGap = "6vw";
+      unitsList.style.flexWrap = "wrap";
       Units_List = unitsList;
       createCheckBoxList(defineUnitsArray, Units_List);
       define_units.appendChild(unitsList);
@@ -303,8 +303,9 @@ function setStoreMaster(el) {
       inverntoryHead.style.fontSize = "1rem";
       var inverntoryParamCheckboxDiv = document.createElement("div");
       inverntoryParamCheckboxDiv.style.display = "flex";
-      inverntoryParamCheckboxDiv.style.alignItems = "center"
-      inverntoryParamCheckboxDiv.style.flexWrap = "wrap"
+      inverntoryParamCheckboxDiv.style.alignItems = "center";
+      inverntoryParamCheckboxDiv.style.flexWrap = "wrap";
+      inverntoryParamCheckboxDiv.style.paddingRight = "10vw";
 
       inverntoryParamCheckboxDiv.style.gap = " 3vw";
       inverntoryParamCheckboxDiv.style.alignItem = "center";
@@ -339,8 +340,8 @@ function setStoreMaster(el) {
       ];
       inverntoryParameterData.forEach((item) => {
         // Create a checkbox input element
-        const checkboxDiv = document.createElement("div")
-        
+        const checkboxDiv = document.createElement("div");
+
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.value = item.id;
@@ -353,7 +354,7 @@ function setStoreMaster(el) {
         // Add the label and checkbox to the parent element
         checkboxDiv.appendChild(checkbox);
         checkboxDiv.appendChild(label);
-        inverntoryParamCheckboxDiv.appendChild(checkboxDiv)
+        inverntoryParamCheckboxDiv.appendChild(checkboxDiv);
       });
     }
     mInventoryParam(storeBody);
@@ -374,11 +375,12 @@ function setStoreMaster(el) {
       inverntoryLedgerCheckboxDiv.style.display = "flex";
       inverntoryLedgerCheckboxDiv.style.flexWrap = "wrap";
       inverntoryLedgerCheckboxDiv.style.alignItems = "center";
+      inverntoryLedgerCheckboxDiv.style.paddingRight = "10vw";
 
       inverntoryLedgerCheckboxDiv.style.gap = " 3vw";
 
       inverntoryLedgerCheckboxDiv.style.alignItem = "center";
-      
+
       el.appendChild(inverntoryLedgerBox);
       inverntoryLedgerBox.appendChild(inverntoryLedgerHead);
       inverntoryLedgerBox.appendChild(inverntoryLedgerCheckboxDiv);
@@ -411,7 +413,7 @@ function setStoreMaster(el) {
       ];
       inverntoryLedgerData.forEach((item) => {
         // Create a checkbox input element
-        const checkboxDiv = document.createElement("div")
+        const checkboxDiv = document.createElement("div");
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -434,7 +436,7 @@ function setStoreMaster(el) {
       var uploadDownloadSection = document.createElement("div");
       uploadDownloadSection.style.display = "flex";
       uploadDownloadSection.style.flexDirection = "column";
-      uploadDownloadSection.style.marginTop = "30px"
+      uploadDownloadSection.style.marginTop = "30px";
       title("Uploads & Download", uploadDownloadSection);
       uploadDownloadSection.style.height = " 25vh";
       uploadDownloadSection.style.display = " flex";
