@@ -150,6 +150,7 @@ function setStoreMaster(el) {
       var label = document.createElement("label");
       label.htmlFor = id;
       label.innerHTML = eleName;
+      label.style.fontWeight = "bold"
 
       checkboxInput.appendChild(checkbox);
       checkboxInput.appendChild(label);
@@ -234,6 +235,7 @@ function setStoreMaster(el) {
 
       var item_category = document.createElement("div");
       item_category.style.margin = "4vh 0";
+      item_category.style.marginTop = "0vh";
       item_category.style.display = "flex";
       item_category.style.flexDirection = "column";
       item_category.id = "item_category";
@@ -247,16 +249,18 @@ function setStoreMaster(el) {
       var itemList = document.createElement("div");
       itemList.style.display = "flex";
       itemList.style.flexDirection = "row";
+      itemList.style.rowGap = "3vw"
+      itemList.style.columnGap = "6vw"
+      itemList.style.flexWrap = "wrap"
       Item_List = itemList;
       createCheckBoxList(categoryArray, Item_List);
-      // itemList.style.width = "50vw"
-      // itemList.style.overflowWrap = "word-break"
       item_category.appendChild(itemList);
       parameters.appendChild(item_category);
       parameters.appendChild(line);
 
       var define_units = document.createElement("div");
       define_units.style.margin = "4vh 0";
+      define_units.style.marginTop = "2vh";
       define_units.style.display = "flex";
       define_units.style.flexDirection = "column";
       define_units.id = "define_units";
@@ -270,6 +274,9 @@ function setStoreMaster(el) {
       var unitsList = document.createElement("div");
       unitsList.style.display = "flex";
       unitsList.style.flexDirection = "row";
+      unitsList.style.rowGap = "3vw"
+      unitsList.style.columnGap = "6vw"
+      unitsList.style.flexWrap = "wrap"
       Units_List = unitsList;
       createCheckBoxList(defineUnitsArray, Units_List);
       define_units.appendChild(unitsList);
@@ -284,7 +291,7 @@ function setStoreMaster(el) {
     // inverntory parameter section
     function mInventoryParam(el) {
       var inverntoryParaBox = document.createElement("div");
-      inverntoryParaBox.style.borderBottom = "1px solid gray";
+      inverntoryParaBox.style.borderBottom = "1px solid rgb(215, 218, 222)";
       inverntoryParaBox.style.paddingBottom = "20px";
       inverntoryParaBox.style.display = " flex";
       inverntoryParaBox.style.flexWrap = " wrap";
@@ -295,11 +302,11 @@ function setStoreMaster(el) {
       inverntoryHead.style.fontWeight = "bold";
       inverntoryHead.style.fontSize = "1rem";
       var inverntoryParamCheckboxDiv = document.createElement("div");
-      // inverntoryParamCheckboxDiv.style.display = "flex";
-      inverntoryParamCheckboxDiv.style.flexBasis = "20%";
-      inverntoryParamCheckboxDiv.style.flexGrow = "2";
+      inverntoryParamCheckboxDiv.style.display = "flex";
+      inverntoryParamCheckboxDiv.style.alignItems = "center"
+      inverntoryParamCheckboxDiv.style.flexWrap = "wrap"
 
-      inverntoryParamCheckboxDiv.style.gap = " 1vw";
+      inverntoryParamCheckboxDiv.style.gap = " 3vw";
       inverntoryParamCheckboxDiv.style.alignItem = "center";
 
       el.appendChild(inverntoryParaBox);
@@ -332,6 +339,8 @@ function setStoreMaster(el) {
       ];
       inverntoryParameterData.forEach((item) => {
         // Create a checkbox input element
+        const checkboxDiv = document.createElement("div")
+        
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
         checkbox.value = item.id;
@@ -342,15 +351,16 @@ function setStoreMaster(el) {
         label.style.fontSize = "1rem";
         label.style.fontWeight = "bold";
         // Add the label and checkbox to the parent element
-        inverntoryParamCheckboxDiv.appendChild(checkbox);
-        inverntoryParamCheckboxDiv.appendChild(label);
+        checkboxDiv.appendChild(checkbox);
+        checkboxDiv.appendChild(label);
+        inverntoryParamCheckboxDiv.appendChild(checkboxDiv)
       });
     }
     mInventoryParam(storeBody);
     function mInventoryLedgerParameter(el) {
       var inverntoryLedgerBox = document.createElement("div");
       inverntoryLedgerBox.style.display = " flex";
-      inverntoryLedgerBox.style.borderBottom = "1px solid gray";
+      inverntoryLedgerBox.style.borderBottom = "1px solid rgb(215, 218, 222)";
       inverntoryLedgerBox.style.paddingBottom = "20px";
       inverntoryLedgerBox.style.flexDirection = " column";
       inverntoryLedgerBox.style.justifyContent = " center";
@@ -368,13 +378,8 @@ function setStoreMaster(el) {
       inverntoryLedgerCheckboxDiv.style.gap = " 3vw";
 
       inverntoryLedgerCheckboxDiv.style.alignItem = "center";
-      var singleCheckbox = document.createElement("div");
-      singleCheckbox.style.flexBasis = "20%";
-      singleCheckbox.style.flexGrow = "2";
-
-      singleCheckbox.style.gap = "10px";
+      
       el.appendChild(inverntoryLedgerBox);
-      inverntoryLedgerCheckboxDiv.appendChild(singleCheckbox);
       inverntoryLedgerBox.appendChild(inverntoryLedgerHead);
       inverntoryLedgerBox.appendChild(inverntoryLedgerCheckboxDiv);
       let inverntoryLedgerData = [
@@ -406,6 +411,7 @@ function setStoreMaster(el) {
       ];
       inverntoryLedgerData.forEach((item) => {
         // Create a checkbox input element
+        const checkboxDiv = document.createElement("div")
 
         const checkbox = document.createElement("input");
         checkbox.type = "checkbox";
@@ -418,8 +424,9 @@ function setStoreMaster(el) {
         label.innerHTML = item.data;
 
         // Add the label and checkbox to the parent element
-        singleCheckbox.appendChild(checkbox);
-        singleCheckbox.appendChild(label);
+        checkboxDiv.appendChild(checkbox);
+        checkboxDiv.appendChild(label);
+        inverntoryLedgerCheckboxDiv.appendChild(checkboxDiv);
       });
     }
     mInventoryLedgerParameter(storeBody);
@@ -427,6 +434,7 @@ function setStoreMaster(el) {
       var uploadDownloadSection = document.createElement("div");
       uploadDownloadSection.style.display = "flex";
       uploadDownloadSection.style.flexDirection = "column";
+      uploadDownloadSection.style.marginTop = "30px"
       title("Uploads & Download", uploadDownloadSection);
       uploadDownloadSection.style.height = " 25vh";
       uploadDownloadSection.style.display = " flex";
